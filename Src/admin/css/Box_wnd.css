@@ -1,0 +1,8 @@
+/* CSS Document */
+.dvwnd{border:1px #B7E1B4 solid;font-size:12px;background-color:white;font-family:verdana;width:300px;height:auto;position:absolute;z-index:99999}
+.dvwndcanvas{z-index:99998;background-color:#ffffff;left:0;top:0;margin:0;padding:0;position:fixed!important;/*FF IE7*/position:absolute;filter:alpha(opacity=10);opacity:0.1;}
+.dvwndtitle{background-color:#CEE9CA; cursor:move; font-weight:bold; color:#1E860B; padding:8px;}
+.dvwndfocus{background-color:white; cursor:move; font-weight:bold; color:white; padding:8px;}
+.dvwndchild{padding:0px;}
+a.dvwndclose{background-color:#cc0000;color:white;text-decoration: none;font-size:12px;}
+a:hover.dvwndclose{background-color:#ff0000;color:white;text-decoration: none;font-size:12px;}

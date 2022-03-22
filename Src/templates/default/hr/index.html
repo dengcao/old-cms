@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if $get.keyword!=""}{$get.keyword}{elseif $get.classid!=""}{$class.seo_title}{else}诚聘英才{/if} - {$web.seotitle}</title>
+<meta name="Keywords" content="{$class.seo_keyword}">
+<meta name="Description" content="{$class.seo_description}">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link href="{$web.css_path}style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="main">
+    {include file="include/head.html"}
+    <div class="site">您当前的位置：<a href="{$web.dir}">首页</a> -> <a href="{$web.dir}index.php?m=hr">诚聘英才</a>{if $get.keyword!=""} -> 职位搜索{elseif $get.classid!=""} -> <a href="{$web.dir}index.php?m=hr&classid={$class.classid}">{$class.classname}</a>{/if}</div>
+    <div class="clear"></div>
+    <div class="content">
+      <div class="left">
+        <div class="box">
+          <div class="box_t">
+            <div class="box_t_l"></div>
+            <div class="box_t_c"><h2 class="heading">招聘分类</h2>
+            </div>
+            <div class="box_t_r"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="box_c">
+            <dl class="list">
+            
+           {get_category_list parentid="7" level="1" visible="0" num="" noneback="暂无分类。"}
+            <dt class="subtitle"><a href="{$web.dir}index.php?m=hr&classid=<classid>"><classname></a></dt>
+                <dd></dd>
+           {/get_category_list}
+            
+            </dl>
+          </div>
+        </div>
+        <div class="box">
+          <div class="box_t">
+            <div class="box_t_l"></div>
+            <div class="box_t_c">
+              <h2 class="heading">关于我们</h2>
+            </div>
+            <div class="box_t_r"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="box_c">
+            <dl class="list">
+              {get_category_list parentid="4" level="1" visible="0" num=""}
+              <dt class="subtitle"><a href="{$web.dir}index.php?m=about&id=<classid>"><classname></a></dt>
+              {/get_category_list}
+              <dd></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="box">
+          <div class="box_t1">
+              <h2 class="heading1">{if $get.keyword!=""}搜索“{$get.keyword}”结果{elseif $get.classid!=""}{$class.classname}{else}诚聘英才{/if}</h2>
+          </div>
+          <div class="clear"></div>
+          <div class="info">
+            
+            <ul class="newlist">
+            
+            {literal}
+            <style type="text/css">
+			.hr_list{margin-top:10px; margin-bottom:30px;line-height:160%;}
+            .dd2{ padding-right:10px; line-height:28px;}
+			.dd3{ padding-left:10px; line-height:28px;}	
+			.dd3 a{ text-decoration:none;}
+			.dd3 a:hover{ text-decoration:underline;}
+			.bt{padding:5px 10px; color:#ffffff;
+			{/literal}
+     background:url({$web.images_path}line1.gif) repeat-x;
+	 {literal}
+	 height:23px;
+	 border:none;
+	 cursor:pointer;
+	 
+}
+            </style>
+            {/literal}
+            {get_hr_list classid="{$get.classid}" recommend="" auditing="1" is_useful_life=""  noneback="抱歉，暂时找不到任何信息。" num="5" orderby="" ischild="true" pagestyle="4" page="<li id=\"page_list\"><page></li>" sql_like="hr_title,hr_content" keyword="{$get.keyword}"}
+            <div class="hr_list">
+<a name="<hrid>"></a>
+<table width="98%" border="0" cellpadding="0" cellspacing="1" bgcolor="#E9E9E9">
+  <tr>
+    <td width="19%" align="right" bgcolor="#ffffff" class="dd2">招聘职位：</td>
+    <td width="81%" bgcolor="#ffffff" class="dd3"><a href="{$web.dir}index.php?m=hr&c=show&id=<hrid>" target="_blank"><strong class="f3"><hr_title></strong></a></td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#ffffff" class="dd2">招聘人数：</td>
+    <td bgcolor="#ffffff" class="dd3"><hr_num></td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#ffffff" class="dd2">工作地点：</td>
+    <td bgcolor="#ffffff" class="dd3"><hr_address></td>
+  </tr>  
+  <tr>
+    <td align="right" bgcolor="#ffffff" class="dd2">学历要求：</td>
+    <td bgcolor="#ffffff" class="dd3"><hr_education></td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#ffffff" class="dd2">工作经验：</td>
+    <td bgcolor="#ffffff" class="dd3"><hr_experience></td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#ffffff" class="dd2">工资待遇：</td>
+    <td bgcolor="#ffffff" class="dd3"><hr_salary></td>
+  </tr>  
+  <tr>
+    <td align="right" bgcolor="#ffffff" class="dd2">发布时间：</td>
+    <td bgcolor="#ffffff" class="dd3"><dateformat(<updatetime>,Y-m-d)></td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#ffffff" class="dd2">有效期限：</td>
+    <td bgcolor="#ffffff" class="dd3"><dateformat(<hr_useful_life>,Y-m-d)></td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#ffffff" class="dd3">&nbsp;</td>
+    <td bgcolor="#ffffff" class="dd3"><a href="{$web.dir}index.php?m=hr&c=show&id=<hrid>" target="_blank" class="bt">查看此职位详细说明>></a> &nbsp;&nbsp;</td>
+  </tr>
+</table>
+</div>
+           {/get_hr_list}
+	
+         </ul>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+{include file="include/foot.html"}
+  </div>
+</body>
+</html>

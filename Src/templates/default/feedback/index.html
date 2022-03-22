@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{if $get.classid!=""}{$class.seo_title}{else}留言反馈{/if} - {$web.seotitle}</title>
+<meta name="Keywords" content="{$class.seo_keyword}">
+<meta name="Description" content="{$class.seo_description}">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link href="{$web.css_path}style.css" rel="stylesheet" type="text/css" />
+{literal}<style type="text/css">.fb_tr td{padding: 5px 0px;}</style>{/literal}
+</head>
+
+<body>
+  <div class="main">
+    {include file="include/head.html"}
+    <div class="site">您当前的位置：<a href="{$web.dir}">首页</a> -> <a href="{$web.dir}index.php?m=feedback">留言反馈</a>{if $get.classid!=""} -> {$class.classname}{/if}</div>
+    <div class="clear"></div>
+    <div class="content">
+      <div class="left">
+      
+        <div class="box">
+          <div class="box_t">
+            <div class="box_t_l"></div>
+            <div class="box_t_c">
+              <h2 class="heading">留言分类</h2>
+            </div>
+            <div class="box_t_r"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="box_c">
+            <dl class="list">
+              {get_category_list parentid="3" level="1" visible="0" num=""}
+              <dt class="subtitle"><a href="{$web.dir}index.php?m=feedback&classid=<classid>"><classname></a></dt>
+              {/get_category_list}
+              <dd></dd>
+            </dl>
+          </div>
+        </div>
+      
+        <div class="box">
+          <div class="box_t">
+            <div class="box_t_l"></div>
+            <div class="box_t_c">
+              <h2 class="heading">关于我们</h2>
+            </div>
+            <div class="box_t_r"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="box_c">
+            <dl class="list">
+              {get_category_list parentid="4" level="1" visible="0" num=""}
+              <dt class="subtitle"><a href="{$web.dir}index.php?m=about&id=<classid>"><classname></a></dt>
+              {/get_category_list}
+              <dd></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="box">
+          <div class="box_t1">
+              <h2 class="heading1">{if $get.classid!=""}{$class.classname}{else}留言反馈{/if}</h2>
+          </div>
+          <div class="clear"></div>
+          <div class="info wenzi">
+            
+            
+            <div style="padding:8px 0px;">
+    
+<table width="98%" height=28 border=0 align="center" cellPadding=0 cellSpacing=0 style="table-LAYOUT: fixed">
+  <tbody>
+    <tr height=3 width="100%">
+      <td width="100%"><table style="table-LAYOUT: fixed" height=3 cellSpacing=0 cellPadding=0 width="100%" border=0>
+          <tbody>
+            <tr height=1>
+              <td width=1></td>
+              <td width=1></td>
+              <td width=1></td>
+              <td bgColor="#CCCCCC"></td>
+              <td width=1></td>
+              <td width=1></td>
+              <td width=1></td>
+            </tr>
+            <tr height=1>
+              <td></td>
+              <td bgColor="#CCCCCC" colSpan=2></td>
+              <td bgColor="#F7F7F7"></td>
+              <td bgColor="#CCCCCC" colSpan=2></td>
+              <td></td>
+            </tr>
+            <tr height=1>
+              <td></td>
+              <td bgColor="#CCCCCC"></td>
+              <td bgColor="#F7F7F7" colSpan=3></td>
+              <td bgColor="#CCCCCC"></td>
+              <td></td>
+            </tr>
+          </tbody>
+      </table></td>
+    </tr>
+    <tr width="100%">
+      <td width="100%"><table style="table-LAYOUT: fixed" height="100%" cellSpacing=0 cellPadding=0 border=0>
+          <tbody>
+            <tr>
+              <td width=1 bgColor="#CCCCCC"></td>
+              <td id=oINNER bgColor="#F7F7F7" align="center" style="padding-left:3px; padding-right:1px; padding-top:1px;" width="100%">
+
+	<table width="100%" border="0" align="left" cellpadding="0" cellspacing="0" bordercolorlight="#BBBBBB" bordercolordark="#FFFFFF" bgcolor="#FFFFFF">
+          <tr align="center" height="30" style="font-weight:bold; ">
+            <td width="6%" bgcolor="#F1F1F1">编号</td>
+            <td width="35%" bgcolor="#F1F1F1">留言主题</td>
+            <td width="15%" bgcolor="#F1F1F1">留言时间</td>
+            <td width="12%" bgcolor="#F1F1F1">联系人</td>
+          </tr>
+          
+            {get_feedback_list classid="{if $get.classid==""}3{else}{$get.classid}{/if}" recommend="0" auditing="1" isreply="" noneback="<tr><td height=64 colspan=4 align=center>没有找到符合条件的留言记录 ！</td></tr>" num="10" orderby="" ischild="true" pagestyle="3" page="<tr><td height=\"36\" colspan=\"4\" align=\"center\" bgcolor=\"#ffffff\"><page></td></tr>" sql_like="fbtitle,fbcontent" keyword="{$get.keyword}"}
+            <tr bgcolor="#ffffff" height="17" class="fb_tr">
+            <td height="17" align="center"><i></td>
+            <td style="padding-left:4px; " align="left"><a href="{$web.dir}index.php?m=feedback&c=show&id=<fbid>" style="color:#333" target="_blank"><fbtitle></a>&nbsp;</td>
+            <td align="center" style="padding-left:4px; "><updatetime>&nbsp;</td>
+            <td align="center"><author>&nbsp;</td>
+            </tr>
+            {/get_feedback_list}
+  
+	    </table>
+		</td>
+              <td width=1 bgColor="#CCCCCC"></td>
+            </tr>
+          </tbody>
+      </table></td>
+    </tr>
+    <tr height=3 width="100%">
+      <td><table style="table-LAYOUT: fixed" height=3 cellSpacing=0 cellPadding=0 width="100%" border=0>
+          <tbody>
+            <tr height=1>
+              <td width=1></td>
+              <td width=1 bgColor="#CCCCCC"></td>
+              <td width=1 bgColor="#F7F7F7"></td>
+              <td bgColor="#F7F7F7"></td>
+              <td width=1 bgColor="#F7F7F7"></td>
+              <td width=1 bgColor="#CCCCCC"></td>
+              <td width=1></td>
+            </tr>
+            <tr height=1>
+              <td></td>
+              <td bgColor="#CCCCCC" colSpan=2></td>
+              <td bgColor="#F7F7F7"></td>
+              <td bgColor="#CCCCCC" colSpan=2></td>
+              <td></td>
+            </tr>
+            <tr height=1>
+              <td colSpan=3></td>
+              <td bgColor="#CCCCCC"></td>
+              <td colSpan=3></td>
+            </tr>
+          </tbody>
+      </table></td>
+    </tr>
+  </tbody>
+</table>		  
+
+<br />
+
+<form action="{$web.dir}index.php?m=feedback&action=fb_post" method="post" name="Feedback" id="Feedback" onsubmit="return CheckFeedback(document.getElementById('Feedback'));">
+<script language="javascript" src="{$web.images_path}validate.js"></script>
+
+<table width="98%" height=28 border=0 align="center" cellPadding=0 cellSpacing=0 style="table-LAYOUT: fixed">
+  <tbody>
+    <tr height=3 width="100%">
+      <td><table style="table-LAYOUT: fixed" height=3 cellSpacing=0 cellPadding=0 width="100%" border=0>
+          <tbody>
+            <tr height=1>
+              <td width=1></td>
+              <td width=1></td>
+              <td width=1></td>
+              <td bgColor="#CCCCCC"></td>
+              <td width=1></td>
+              <td width=1></td>
+              <td width=1></td>
+            </tr>
+            <tr height=1>
+              <td></td>
+              <td bgColor="#CCCCCC" colSpan=2></td>
+              <td bgColor="#F7F7F7"></td>
+              <td bgColor="#CCCCCC" colSpan=2></td>
+              <td></td>
+            </tr>
+            <tr height=1>
+              <td></td>
+              <td bgColor="#CCCCCC"></td>
+              <td bgColor="#F7F7F7" colSpan=3></td>
+              <td bgColor="#CCCCCC"></td>
+              <td></td>
+            </tr>
+          </tbody>
+      </table></td>
+    </tr>
+    <tr>
+      <td><table style="table-LAYOUT: fixed" height="100%" cellSpacing=0 cellPadding=0 border=0>
+          <tbody>
+            <tr>
+              <td width=1 bgColor="#CCCCCC"></td>
+              <td id=oINNER bgColor="#F7F7F7" align="left" style="padding-left:3px; padding-right:1px; padding-top:1px;" width="100%">
+
+<a name="feedback" id="feedback2"></a>
+<table width="100%" border="0" align="left" cellpadding="0" cellspacing="0" bordercolorlight="#BBBBBB" bordercolordark="#FFFFFF" bgcolor="#FFFFFF">
+  <tr bgcolor="#FAFAFA">
+            <td height="30" colspan="4" bgcolor="#E1E1E1"><b>[ 在线留言 ]</b></td>
+          </tr>
+          <tr bgcolor="#FAFAFA">
+            <td height="36" align="right" nowrap bgcolor="#F7F7F7" class="td_padding1166">留言类型：</td>
+            <td height="27" colspan="3" bgcolor="#F7F7F7" class="td_padding1166">
+              <select name="classid" id="classid">
+              {get_category_list parentid="3" level="1" visible="0" num="" noneback=""}
+              <option value="<classid>"><classname></option>
+              {/get_category_list}
+                </select>
+              <font color="#FF0000"> * </font> </td>
+            </tr>
+          <tr>
+            <td height="36" align="right" bgcolor="#F1F1F1" class="td_padding1166">您的姓名：</td>
+            <td bgcolor="#F1F1F1" class="td_padding1166"><input name="author" type="text" class="inputText" id="author" size="20" maxlength="60" value="">
+              <font color="#FF0000"> * </font></td>
+            <td align="right" bgcolor="#F1F1F1" class="td_padding1166">电子邮件：</td>
+            <td bgcolor="#F1F1F1" class="td_padding1166"><input name="email" type="text" class="inputText" id="email" size="20" maxlength="60" value="">
+              <font color="#FF0000"> * </font></td>
+          </tr>
+          <tr bgcolor="#FAFAFA">
+            <td height="36" align="right" bgcolor="#F7F7F7" class="td_padding1166">联系电话：</td>
+            <td bgcolor="#F7F7F7" class="td_padding1166"><input name="myphone" type="text" class="inputText" id="myphone" size="20" maxlength="60" value="">
+            <font color="#E4EDF9">&nbsp; </font></td>
+            <td align="right" bgcolor="#F7F7F7" class="td_padding1166">联系QQ：</td>
+            <td bgcolor="#F7F7F7" class="td_padding1166"><input name="qq" type="text" class="inputText" id="qq" size="20" maxlength="60"></td>
+          </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="36" align="right" bgcolor="#F1F1F1" class="td_padding1166">联系地址：</td>
+    <td colspan="3" bgcolor="#F1F1F1" class="td_padding1166"><input name="address" type="text" class="inputText" id="address" size="60" maxlength="255" value="">
+      <font color="#E4EDF9">&nbsp; </font></td>
+  </tr>
+          <tr bgcolor="#FAFAFA">
+            <td height="36" align="right" bgcolor="#F7F7F7" class="td_padding1166">留言主题：</td>
+            <td colspan="3" bgcolor="#F7F7F7" class="td_padding1166"><input name="fbtitle" type="text" class="inputText" id="fbtitle" size="60" maxlength="255">
+              <font color="#FF0000"> * </font> </td>
+          </tr>
+          <tr bgcolor="#FAFAFA">
+            <td height="36" align="right" bgcolor="#F7F7F7" class="td_padding1166">留言内容：</td>
+            <td colspan="3" bgcolor="#F7F7F7" class="td_padding1166">
+            
+     <script language="javascript">window.UEDITOR_HOME_URL = "{$web.dir}editor1/";</script>
+     <script type="text/javascript" charset="utf-8" src="{$web.dir}editor1/editor_config.js"></script>     
+    <script type="text/javascript" charset="utf-8" src="{$web.dir}editor1/editor_api.js"></script>
+    <link rel="stylesheet" type="text/css" href="{$web.dir}editor1/themes/default/ueditor.css"/>
+     
+            <textarea name="fbcontent" cols="60" rows="6" class="inputText" id="fbcontent" style="width:98%;"></textarea>
+<script type="text/javascript">
+var editorOption = {
+            toolbars:[['fontfamily','fontsize', 'Undo', 'Redo','Bold','italic','forecolor', 'removeformat','formatmatch', 'underline','emotion']],            
+            wordCount:true,       
+            elementPathEnabled:false,
+            minFrameHeight:250,
+			maximumWords:2000,
+			autoHeightEnabled:true,
+			autoFloatEnabled:false
+        };	
+    var editor_a = new baidu.editor.ui.Editor(editorOption);
+    editor_a.render( 'fbcontent' );
+</script>	
+		    </td>
+          </tr>
+          <tr bgcolor="#FAFAFA">
+            <td height="36" align="right" bgcolor="#F1F1F1" class="td_padding1166">&nbsp;</td>
+            <td colspan="3" bgcolor="#F1F1F1" class="td_padding1166">
+            <input name="Submit" type="submit" class="inputButton" value="提 交" >
+                <input name="Submit" type="reset" class="inputButton" value="重 置" >
+                <input name="reload" type="button" class="inputButton" id="reload"  onClick="window.location.reload()" value="刷 新">
+				&nbsp;&nbsp;
+</td>
+          </tr>
+    </table>
+  
+  
+
+</td>
+              <td width=1 bgColor="#CCCCCC"></td>
+            </tr>
+          </tbody>
+      </table></td>
+    </tr>
+    <tr height=3 width="100%">
+      <td><table style="table-LAYOUT: fixed" height=3 cellSpacing=0 cellPadding=0 width="100%" border=0>
+          <tbody>
+            <tr height=1>
+              <td width=1></td>
+              <td width=1 bgColor="#CCCCCC"></td>
+              <td width=1 bgColor="#F7F7F7"></td>
+              <td bgColor="#F7F7F7"></td>
+              <td width=1 bgColor="#F7F7F7"></td>
+              <td width=1 bgColor="#CCCCCC"></td>
+              <td width=1></td>
+            </tr>
+            <tr height=1>
+              <td></td>
+              <td bgColor="#CCCCCC" colSpan=2></td>
+              <td bgColor="#F7F7F7"></td>
+              <td bgColor="#CCCCCC" colSpan=2></td>
+              <td></td>
+            </tr>
+            <tr height=1>
+              <td colSpan=3></td>
+              <td bgColor="#CCCCCC"></td>
+              <td colSpan=3></td>
+            </tr>
+          </tbody>
+      </table></td>
+    </tr>
+  </tbody>
+</table>
+  
+</form>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    {include file="include/foot.html"}
+  </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<div class="foot">
+      <div class="copyright">
+       {$label.webfoot}
+
+      </div>
+    </div>
+{literal}
+<SCRIPT language=javascript>
+<!-- Hide
+function killErrors() {
+return true;
+}
+window.onerror = killErrors;
+// -->
+</SCRIPT>
+<script>
+    //百度统计
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2d6dfcfba26550bbcd6dad28ebdbd6db";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+    //cnzz统计
+    $(function () {
+        //延迟统计, 以免影响页面载入
+        var cnzz = document.createElement("script");
+        cnzz.src = "//v1.cnzz.com/z_stat.php?id=186269&web_id=186269";
+        document.getElementsByTagName('body')[0].appendChild(cnzz);
+    });
+</script>
+{/literal}

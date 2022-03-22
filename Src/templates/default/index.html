@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$web.index_seotitle}</title>
+<meta name="Keywords" content="{$web.index_seokeywords}">
+<meta name="Description" content="{$web.index_seodescription}">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link href="{$web.css_path}style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="main">
+    {include file="include/head.html"}
+    <div class="gundong">
+      <div id="colee_left" style="overflow:hidden;width:960px;">
+           <table cellpadding="0" cellspacing="0" border="0">
+             <tr>
+               <td id="colee_left1" valign="top" align="center"><table cellpadding="5" cellspacing="0" border="0" class="pic">
+                   <tr align="center">
+                   <!--推荐产品-->
+            {get_product_list classid="1" recommend="1" auditing="1" isimg="false"  noneback="" num="50" orderby="" ischild="true" pagestyle="4" page="" sql_like="" keyword=""}
+            <td><a href="{$web.dir}index.php?m=product&c=show&id=<proid>" title="<proname>"><img src="<proimg1>" width="179" height="150" /></a></td>
+            {/get_product_list}                  
+                   </tr>
+               </table></td>
+               <td id="colee_left2" valign="top"></td>
+             </tr>
+           </table>
+         </div>
+         {literal}
+         <script>
+//使用div时，请保证colee_left2与colee_left1是在同一行上.
+var speed=30//速度数值越大速度越慢
+var colee_left2=document.getElementById("colee_left2");
+var colee_left1=document.getElementById("colee_left1");
+var colee_left=document.getElementById("colee_left");
+colee_left2.innerHTML=colee_left1.innerHTML
+function Marquee3(){
+if(colee_left2.offsetWidth-colee_left.scrollLeft<=0)//offsetWidth 是对象的可见宽度
+colee_left.scrollLeft-=colee_left1.offsetWidth//scrollWidth 是对象的实际内容的宽，不包边线宽度
+else{
+colee_left.scrollLeft++
+}
+}
+var MyMar3=setInterval(Marquee3,speed)
+colee_left.onmouseover=function() {clearInterval(MyMar3)}
+colee_left.onmouseout=function() {MyMar3=setInterval(Marquee3,speed)}
+</script>
+{/literal}
+    </div>
+    <div class="clear"></div>
+    <div class="content">
+      <div class="left">
+        <div class="box">
+          <div class="box_t">
+            <div class="box_t_l"></div>
+            <div class="box_t_c"><h2 class="heading">联系我们</h2>
+            </div>
+            <div class="box_t_r"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="box_c wenzi">
+          {$label.index_contact}
+          </div>
+        </div>
+        <div class="box">
+          <div class="box_t">
+            <div class="box_t_l"></div>
+            <div class="box_t_c"><h2 class="heading">产品分类</h2>
+            </div>
+            <div class="box_t_r"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="box_c">
+            <dl class="list">
+              {get_category_level parentid="1" level="2" visible="0" num="" noneback="暂无分类"}
+           <level_1_top> <dt class="subtitle"><a href="{$web.dir}index.php?m=product&classid=<classid>"><classname></a></dt>
+            <dd><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr><td><ul class="cate_list"></level_1_top>
+            <level_2_top><li>+ <a href="{$web.dir}index.php?m=product&classid=<classid>"><classname></a></li></level_2_top><level_2_bottom></level_2_bottom>
+            <level_1_bottom></ul></td></tr></table></level_1_bottom>
+            {/get_category_level}
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="box">
+          <div class="box_t">
+            <div class="box_t_l"></div>
+            <div class="box_t_c1">
+              <h2 class="heading">公司简介</h2>
+              <span class="more"><a href="{$web.dir}index.php?m=about&id=20"><img src="{$web.images_path}more.jpg" alt="more" width="36" height="8" /></a></span></div>
+            <div class="box_t_r"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="box_c wenzi">
+          {$label.about_us}            
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="box_t">
+            <div class="box_t_l"></div>
+            <div class="box_t_c1">
+              <h2 class="heading">行业知识</h2>
+              <span class="more"><a href="{$web.dir}index.php?m=article"><img src="{$web.images_path}more.jpg" alt="more" width="36" height="8" /></a></span></div>
+            <div class="box_t_r"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="box_c xinwen">
+          
+          <ul id="article_list_index">
+          {get_article_list classid="62" recommend="0" auditing="1" isimg="false"  noneback="抱歉，找不到任何信息。" num="12" orderby="" 
+ischild="true" pagestyle="4" page="" sql_like="" keyword=""}
+            <li><a href="{$web.dir}index.php?m=article&c=show&id=<artid>" target=_blank>·<truncate(<arttitle>,100,...)></a></li>
+          {/get_article_list}
+</ul>
+
+          </div>
+        </div>
+        <div class="box">
+          <div class="box_t">
+            <div class="box_t_l"></div>
+            <div class="box_t_c1">
+              <h2 class="heading">产品展示</h2>
+              <span class="more"><a href="{$web.dir}index.php?m=product"><img src="{$web.images_path}more.jpg" alt="more" width="36" height="8" /></a></span></div>
+            <div class="box_t_r"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="box_c">
+            <ul class="piclist1">
+            {get_product_list classid="1" recommend="" auditing="1" isimg="false" noneback="暂无产品信息。" num="9" orderby="" ischild="true" pagestyle="4" page="" sql_like="" keyword=""}
+            <li><a href="{$web.dir}index.php?m=product&c=show&id=<proid>"><img src="<proimg1>" width="215" height="150" /></a>
+              <p><a href="{$web.dir}index.php?m=product&c=show&id=<proid>"><proname></a></p>
+            </li>
+            {/get_product_list}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+{include file="include/foot.html"}
+  </div>
+</body>
+</html>

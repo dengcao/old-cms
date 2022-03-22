@@ -1,0 +1,78 @@
+兼容CSS和JS代码：
+{literal}
+代码内容
+{/literal}
+
+
+获取全局变量：
+{$web.name}{$web.url}{$web.dir}{$web.logo}{$web.banner}{$web.seotitle}{$web.index_seotitle}{$web.index_seokeywords}{$web.index_seodescription}{$web.is_service_online}{$web.template_path_root}{$web.template_path}{$web.template_folder}{$web.css_path}{$web.images_path}
+
+==================================================
+
+获取分类列表：
+（1）方式一：{get_category parentid="4" level="1" visible="0" htmlstr="<dt class=subtitle><a href='index.php?m=about&id=<classid>'><classname></a></dt>" noneback="暂无分类。" num=""}
+（2）方式二：{get_category_list parentid="4" level="1" visible="0" num="" noneback="暂无分类。"}
+              <dt class=subtitle><a href='{$web.dir}index.php?m=about&id=<classid>'><classname></a></dt>
+              {/get_category_list}
+（3）方式三：{get_category_level parentid="1" level="2" visible="0" num="" noneback="暂无分类。"}
+           <level_1_top> <dt class="subtitle"><a href="{$web.dir}index.php?m=product&classid=<classid>"><classname></a></dt>
+            <dd><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr><td><ul class="cate_list"></level_1_top>
+            <level_2_top><li>+ <a href="{$web.dir}index.php?m=product&classid=<classid>"><classname></a></li></level_2_top><level_2_bottom></level_2_bottom>
+            <level_1_bottom></ul></td></tr></table></level_1_bottom>
+            {/get_category_level}
+
+支持参数：<classid><classname><imgurl><parentid><depth><orderby><count>
+
+================================================
+
+获取标签内容：
+
+{$label.标识符}
+
+================================================
+
+分类内容页标签（如公司简介等）：
+{$class.seo_title}{$class.classname}{$class.classcontents}……支持数据表里的所有字段
+
+================================================
+
+获取产品列表：
+{get_product_list classid="{$get.classid}" recommend="0" auditing="1" isimg="false" noneback="暂无产品信息。" num="2" orderby="" ischild="true" pagestyle="4" page="<li class=\"page_list\"><page></li>" sql_like="arttitle,artcontent" keyword="{$get.keyword}"}
+<li><a href="show.asp?id=<classid>" target="_blank" title=""><img src="<proimg1>" width="200" height="150" /></a>
+                <p><a href="show.asp?id=<classid>" target="_blank" title="">·<proname></a></p>
+            </li>
+{*支持所有产品表的字段，<字段名>*}
+{/get_product_list}
+
+classid分类，多个分类ID用,分隔；recommend是否推荐，auditing是否审核，isimg是否带缩略图，num每页数量，orderby排序方式：orderid desc,updatetime desc,proid desc，ischild是否包含子分类产品，pagestyle分页样式，page分页HTML格式为空则不输出分页，$sql_like模糊查询（设置则查询包含字符的产品），$keyword关键词
+
+================================================
+
+获取文章列表：
+{get_article_list classid="{if $get.classid==""}62{else}{$get.classid}{/if}" recommend="0" auditing="1" isimg="false"  noneback="抱歉，找不到任何信息。" num="12" orderby="" ischild="true" pagestyle="4" page="<li id=\"page_list\"><page></li>" sql_like="arttitle,artcontent" keyword="{$get.keyword}"}
+            <li><span><updatetime></span>· <a href="{$web.dir}index.php?m=article&c=show&id=<artid>"><arttitle></a></li>
+            {/get_article_list}
+（支持获取所有文章字段，表示方式：<字段名>。另外，支持使用函数truncate截取字符串，方式：<truncate(<arttitle>,10,...)>。支持时间格式化函数：<dateformat(<updatetime>,Y-m-d)>。）
+classid分类，多个分类ID用,分隔；recommend是否推荐，auditing是否审核，isimg是否带缩略图，num每页数量，orderby排序方式：orderid desc,updatetime desc,artid desc，ischild是否包含子分类产品，pagestyle分页样式，page分页HTML格式为空则不输出分页，$sql_like模糊查询（设置则查询包含字符的产品），$keyword关键词
+
+================================================
+
+获取留言列表：
+
+{get_feedback_list classid="{if $get.classid==""}3{else}{$get.classid}{/if}" recommend="0" auditing="1" isreply="" noneback="<tr><td height=64 colspan=4 align=center>没有找到符合条件的留言记录 ！</td></tr>" num="10" orderby="" ischild="true" pagestyle="3" page="<tr><td height=\"36\" colspan=\"4\" align=\"center\" bgcolor=\"#ffffff\"><page></td></tr>" sql_like="fbtitle,fbcontent" keyword="{$get.keyword}"}
+            <tr bgcolor="#ffffff" height="17">
+            <td height="17" align="center"><i></td>
+            <td style="padding-left:4px; " align="left"><a href="{$web.dir}index.php?m=feedback&c=show&id=<fbid>" style="color:#333" target="_blank"><fbtitle></a>&nbsp;</td>
+            <td align="center" style="padding-left:4px; "><updatetime>&nbsp;</td>
+            <td align="center"><author>&nbsp;</td>
+            </tr>
+            {/get_feedback_list}
+
+
+==================================================
+
+获取人才招聘列表：
+{get_hr_list classid="{$get.classid}" recommend="" auditing="1" is_useful_life=""  noneback="抱歉，暂时找不到任何信息。" num="5" orderby="" ischild="true" pagestyle="4" page="<li id=\"page_list\"><page></li>" sql_like="hr_title,hr_content" keyword="{$get.keyword}"}
+html代码。支持<hrid><hr_title>....等字段
+{/get_hr_list}

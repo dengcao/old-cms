@@ -1,0 +1,7 @@
+User-agent: * 
+Disallow: /admin
+Disallow: /editor1
+Disallow: /editor2
+Disallow: /images
+Disallow: /5300
+Disallow: /include

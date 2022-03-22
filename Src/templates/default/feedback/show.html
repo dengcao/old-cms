@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$feedback.seo_title}{if $get.classid!=""}{$class.seo_title}{else} - 留言反馈{/if} - {$web.seotitle}</title>
+<meta name="Keywords" content="{$feedback.seo_keyword}">
+<meta name="Description" content="{$feedback.seo_description}">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link href="{$web.css_path}style.css" rel="stylesheet" type="text/css" />
+{literal}<style type="text/css">.fb_tr td{padding: 5px 0px;}</style>{/literal}
+</head>
+
+<body>
+  <div class="main">
+    {include file="include/head.html"}
+    <div class="site">您当前的位置：<a href="{$web.dir}">首页</a> -> <a href="{$web.dir}index.php?m=feedback">留言反馈</a> -> 查看内容</div>
+    <div class="clear"></div>
+    <div class="content">
+      <div class="left">
+      
+        <div class="box">
+          <div class="box_t">
+            <div class="box_t_l"></div>
+            <div class="box_t_c">
+              <h2 class="heading">留言分类</h2>
+            </div>
+            <div class="box_t_r"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="box_c">
+            <dl class="list">
+              {get_category_list parentid="3" level="1" visible="0" num=""}
+              <dt class="subtitle"><a href="{$web.dir}index.php?m=feedback&classid=<classid>"><classname></a></dt>
+              {/get_category_list}
+              <dd></dd>
+            </dl>
+          </div>
+        </div>
+      
+        <div class="box">
+          <div class="box_t">
+            <div class="box_t_l"></div>
+            <div class="box_t_c">
+              <h2 class="heading">关于我们</h2>
+            </div>
+            <div class="box_t_r"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="box_c">
+            <dl class="list">
+              {get_category_list parentid="4" level="1" visible="0" num=""}
+              <dt class="subtitle"><a href="{$web.dir}index.php?m=about&id=<classid>"><classname></a></dt>
+              {/get_category_list}
+              <dd></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="box">
+          <div class="box_t1">
+              <h2 class="heading1">{if $class.classid!=""}{$class.classname}{else}留言反馈{/if}</h2>
+          </div>
+          <div class="clear"></div>
+          <div class="info wenzi">
+            
+            
+            <div style="padding:8px 0px;">
+            <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bordercolorlight="#BBBBBB" bordercolordark="#FFFFFF" bgcolor="#FFFFFF" class="fb_tr">
+          <tr bgcolor="#666666">
+            <td height="30" colspan="2" bgcolor="#E1E1E1"><strong> &nbsp;[ 留言详细内容 ]</strong></td>
+          </tr>
+          <tr bgcolor="#E2E2E2">
+            <td width="15%" height="27" align="right" nowrap bgcolor="#F7F7F7" class="td_padding1166">留言类型：</td>
+            <td bgcolor="#F7F7F7" class="td_padding1166">{$class.classname}
+              &nbsp;</td>
+          </tr>
+          <tr bgcolor="#F1F1F1">
+            <td height="27" align="right" class="td_padding1166">留言主题：</td>
+            <td class="td_padding1166">{$feedback.fbtitle}
+              &nbsp;</td>
+          </tr>
+          <tr bgcolor="#E2E2E2">
+            <td height="27" align="right" bgcolor="#F7F7F7" class="td_padding1166">留言内容：</td>
+            <td bgcolor="#F7F7F7" class="td_padding1166">{$feedback.fbcontent}
+											</td>
+          </tr>
+          <tr bgcolor="#F1F1F1">
+            <td height="27" align="right" class="td_padding1166">留言人：</td>
+            <td class="td_padding1166">{$feedback.author}
+              &nbsp;</td>
+          </tr>
+          <tr bgcolor="#E2E2E2">
+            <td height="27" align="right" bgcolor="#F7F7F7" class="td_padding1166">留言时间：</td>
+            <td class="td_padding1166" bgcolor="#F7F7F7">{$feedback.updatetime}
+              &nbsp;</td>
+          </tr>
+          <tr bgcolor="#F1F1F1">
+            <td height="27" align="right" class="td_padding1166" style="color:#F00">管理员回复：</td>
+            <td class="td_padding1166" style="table-layout:fixed;word-break:break-all; line-height:23px; padding-left:4px; padding-right:4px;">{$feedback.replycontent} </td>
+          </tr>
+          <tr bgcolor="#E2E2E2">
+            <td height="27" align="right" bgcolor="#F7F7F7" class="td_padding1166">回复人：</td>
+            <td class="td_padding1166" bgcolor="#F7F7F7">{$feedback.replyman}
+              &nbsp;</td>
+          </tr>
+          <tr bgcolor="#F1F1F1">
+            <td height="27" align="right" class="td_padding1166">回复时间：</td>
+            <td class="td_padding1166">{$feedback.replytime}
+              &nbsp;</td>
+          </tr>
+          <tr bgcolor="#E2E2E2">
+            <td height="27" align="right" bgcolor="#F7F7F7" class="td_padding1166">浏览次数：</td>
+            <td class="td_padding1166" bgcolor="#F7F7F7">{$feedback.hits}
+              &nbsp;</td>
+          </tr>
+          <tr bgcolor="#F9F9F9">
+            <td height="35" colspan="2" align="right" bgcolor="#F7F7F7">						  <a href="javascript: window.print();">『打印本页』</a> &nbsp;<a href="javascript:window.close();">『关闭窗口』</a> &nbsp;</td>
+            </tr>
+      </table>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    {include file="include/foot.html"}
+  </div>
+</body>
+</html>

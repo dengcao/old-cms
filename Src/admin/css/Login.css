@@ -1,0 +1,32 @@
+/* CSS Reset  */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6,pre, form, fieldset, input, textarea, p, blockquote, th, td {padding: 0;margin: 0;}    
+fieldset, img {border: 0;}    
+table {border-collapse: collapse;border-spacing: 0; }    
+ol, ul {list-style: none; }    
+address, caption, cite, code, dfn, em, strong, th, var {   font-weight: normal;   font-style: normal; }    
+caption, th { text-align: left; }    
+h1, h2, h3, h4, h5, h6 { font-weight: normal; font-size: 100%; }    
+q:before, q:after {   content: '';   }    
+abbr, acronym {  border: 0; }
+
+body{background:url(../images/login_bg.jpg) no-repeat center top;}
+#wrap{width:979px;height:592px;margin:0 auto;position:relative; }
+#loginBox{width:332px;height:260px;position:absolute;top:155px;left:165px;padding-left:320px; }
+#loginBox h1,#loginBox h2{height:0px;font-size:0px;line-height:2000em;overflow:hidden; }
+#loginBox ul{margin:45px 0 0 20px;}
+#loginBox li{height:32px; line-height:32px;line-height:32px;  }
+#loginBox label{font-size:12px;}
+#loginBox .inText{padding:3px; background:#ebf4fe;border:1px solid #999;width:160px;  }
+#copyRight{
+	position:absolute;
+	left:570px;
+	top:240px;
+	font-family:"Verdana";
+	color:#999;
+	font-size:12px;
+	width:189px;
+}
+#buttonBar{text-align:center;margin-top:8px; }
+.loginButton{width:126px;height:36px;border:none;font-weight:bold; background:url(../images/login_button.jpg) no-repeat 0px 0px;  }
+
+#LiCode img{ vertical-align:-5px;*vertical-align:-0px;}
