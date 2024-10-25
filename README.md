@@ -18,7 +18,7 @@ old-cms是一个使用原生PHP开发的实用的PHP企业网站管理系统，�
 
 PHP5.2-5.6，MySQL5.7，Apache（或Nginx），phpMyAdmin。
 
-测试了源码仅支持PHP5，不支持PHP7、PHP8。
+源码仅支持PHP5，不支持PHP7、PHP8。
 
 
 
@@ -56,15 +56,17 @@ PHP5.2-5.6，MySQL5.7，Apache（或Nginx），phpMyAdmin。
 
 支持本源码，请到Gitee和GitHub给我们点Star！
 
-Gitee：https://gitee.com/caozha/old-cms
+Gitee：https://gitee.com/dengzhenhua/old-cms
 
-GitHub：https://github.com/cao-zha/old-cms
+GitHub：https://github.com/dengcao/old-cms
 
 
 
-### 关于开发者
+### 关于
 
-邓草 博客 www.caozha.com
+开发：[邓草博客 blog.5300.cn](http://blog.5300.cn)
+
+赞助：[品络 www.pinluo.com](http://blog.5300.cn)  &ensp;  [AI工具箱 5300.cn](https://5300.cn)  &ensp;  [汉语言文学网 hyywx.com](https://hyywx.com)  &ensp;  [雄马 xiongma.cn](https://xiongma.cn) &ensp;  [优惠券 tm.gs](http://tm.gs)
 
 
 
